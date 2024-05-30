@@ -75,29 +75,48 @@
                 </div>
 
                 <div class="row">
-
-                    <x-project title="Indofarm" img="{{ asset('img/portofolio/indofarm.png') }}"
+                    <x-project title="Indofarm"
+                        :images="[
+                            asset('img/portofolio/indofarm.png')
+                        ]"
                         about="Online store website where selling genset, diesel machine and other things for support argicultur. They has product from many brands, and support payment from bank transfer to digital money like Gopay, Ovo, and Dana."
-                        stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","MySQL"]'
+                        :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","MySQL"]'
                         website="https://indofarm.id/" github="" />
 
-                    <x-project title="Kampus Merdeka" img="{{ asset('img/portofolio/kampus-merdeka.png') }}"
+                    <x-project title="Kampus Merdeka"
+                        :images="[
+                            asset('img/portofolio/kampus-merdeka.png')
+                        ]"
                         about="LMS websites focus on certain segments, like report what your do today for mentee, register program for mentee, review report from mentee for mentor, and others. Kampus merdeka is program from Education Ministry Indonesia for support education."
-                        stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","CodeIgniter3","PgSQL"]'
+                        :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","CodeIgniter3","PgSQL"]'
                         website="https://kampusmerdeka.kemdikbud.go.id/" github="" />
 
-                    <x-project title="KBS - TAS" img="{{ asset('img/portofolio/kbs-tas.png') }}"
+                    <x-project title="KBS - TAS"
+                        :images="[
+                            asset('img/portofolio/kbs-tas.png')
+                        ]"
                         about="KBS TAS is website for KBS company, they use this website for manage their transportation queues, ritase, activities, exit and entry of a truck at the shipping dock. This website has feature for manage driver, vehicle, and schedule for when ship ready on shipping dock."
-                        stacks='["HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","ViteJS","PgSQL"]'
+                        :stacks='["HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","Livewire","PgSQL","Docker"]'
                         website="https://kbs-tas.yoo.ga/" github="" />
 
-                    <x-project title="KILOGS - WMS" img="{{ asset('img/portofolio/kilogs-wms.png') }}"
+                    <x-project title="KILOGS - WMS"
+                        :images="[
+                            asset('img/portofolio/kilogs-wms.png')
+                        ]"
                         about="KiLogs WMS is website for KiLogs company, they use this website for manage their warehouse. This website has feature for manage product, stock, suggestion for product placment by type of product or high demand, and others."
-                        stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","ViteJS","PgSQL"]'
+                        :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","Livewire","PgSQL","Docker"]'
                         website="https://kilogs-warehouse.yoo.ga/" github="" />
-
+                    
+                    <x-project title="Mostrans Integration"
+                        :images="[
+                            asset('img/portofolio/mostrans/login.png'),
+                            asset('img/portofolio/mostrans/dashboard.png'),
+                            asset('img/portofolio/mostrans/map.png')
+                        ]"
+                        about="Mostrans Integration is a project developed by the TransTrack team to assist TransTrack GPS users in integrating GPS and other data into the Mostrans application. The platform is designed to enhance data integration and management, making it easy and efficient for users to leverage their GPS information."
+                        :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","Livewire","MySQL","Docker"]'
+                        website="https://mostrans.transtrack.id/" github="" />
                 </div>
-
             </div>
         </section>
         <!--================ End Projects Area =================-->

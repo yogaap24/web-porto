@@ -1,13 +1,12 @@
 <div class="col-12 col-sm-4">
     <div class="project-card shadow">
-        <img class="img-project" src={{ $img }}>
+        <img class="img-project" src={{ $images[0] }}>
         <div class="project-gradient"></div>
-
         <div class="project-detail">
             <h4 class="title-project text-white">{{ $title }}</h4>
             <div class="d-flex flex-wrap">
-                @foreach (json_decode($stacks, true) as $stack)
-                    <span class="stacks">{{ $stack }}</span>)
+                @foreach ($stacks as $stack)
+                    <span class="stacks">{{ $stack }}</span>
                 @endforeach
             </div>
         </div>
@@ -15,8 +14,11 @@
         <!-- Data Detail -->
         <div class="container-data d-none">
             <p class="about-data">{{ $about }}</p>
-            @foreach (json_decode($stacks, true) as $stack)
+            @foreach ($stacks as $stack)
                 <span class="stacks">{{ $stack }}</span>)
+            @endforeach
+            @foreach ($images as $image)
+                <img class="images" src="{{ $image }}">
             @endforeach
             <p class="website-data">{{ $website }}</p>
             <p class="github-data">{{ $github }}</p>

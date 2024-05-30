@@ -26,22 +26,27 @@
   
         <div class="main__post">
           <h3 id="detail-title" class="mt-4">Piggment Chrome Extension</h3>
-  
-          <img id="detail-img" src=""/>
-          
+            
+          <div id="detail-images" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Item carousel akan diisi dengan JavaScript -->
+            </div>
+            <a class="carousel-control-prev" href="#" role="button" id="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#" role="button" id="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+            <!-- Carousel indicators -->
+            <ol class="carousel-indicators"></ol>
+          </div>
+
           <h4>About</h4>
           <p id="detail-about">
-            Piggment is a curated collection of amazingly colored gradients for
-            designers, developers, and smart creators over the world. now you can
-            generate, explore, and save, easy CSS cross-browser gradient codes all
-            in a new tab.
           </p>
   
           <h4>Technologies</h4>
           <p id="detail-stacks" class="d-flex flex-wrap">
-            <span class="d-block mb-1">React</span>
-            <span class="d-block mb-1">Context API</span>
-            <span class="d-block mb-1">Javascript</span>
           </p>
   
           <h4>
@@ -101,6 +106,7 @@
           right: 0px;
           background: rgba(0, 0, 0, 0.8);
       }
+      
       #project-detail {
           background: #020a13;
           width: 34em;
@@ -112,6 +118,7 @@
           transition: all 0.3s linear 0s;
           will-change: opacity, transform;
       }
+
       @media (max-width: 768px) {
           #project-detail{
           width: 100%;
@@ -123,6 +130,7 @@
           animation-duration: 0.5s;
           animation-fill-mode: both;
       }
+
       @keyframes fadeLeft {
           from {
           opacity: 0.8;
@@ -140,16 +148,19 @@
           overflow-x: overlay;
           max-height: 100%;
       }
+
       .header-detail{
           margin-bottom: 2rem;
           padding-bottom: 0.8rem;
           border-bottom: 1px solid #14202b;
       }
+
       .header-detail a{
           font-size: 0.875em;
           font-weight: 900;
           color: #3f566e;
       }
+
       .none-button{
           border: none;
           background: transparent;
@@ -159,27 +170,32 @@
           font-size: calc(0.875em + 1.5px);
           cursor: pointer;
       }
+
       .main__post h3{
           font-size: calc(1.667em - 6px);
           color: #e1e1e1;
           font-weight: 800;
       }
+
       .main__post img{
           width: 100%;
           height: 300px;
           object-fit: cover;
           border-radius: 12px;
       }
+
       .main__post h4{
           font-size: 1.124em;
           color: #e1e1e1;
           margin-top: 2rem;
           margin-bottom: 0.8rem;
       }
+
       .main__post p{
           color: #c6c6c6;
           font-size: 0.875em;
       }
+
       .main__post p span{
           background: #13283e;
           padding: 6px 13px;
@@ -191,15 +207,29 @@
           font-weight: 500;
           line-height: 1;
       }
+
       .main__post h4 svg{
           vertical-align: bottom;
           width: 15px;
           margin-right: 3px;
           fill: #c6c6c6;
       }
+
       .main__post p a{
           font-weight: 600;
           color: #3f566e;
+      }
+
+      .carousel-indicators .active {
+        background-color: #E02E59;
+      }
+
+      .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23E02E59' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+      }
+
+      .carousel-control-prev-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23E02E59' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
       }
   </style>
   

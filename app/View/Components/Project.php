@@ -8,18 +8,21 @@ use Illuminate\View\Component;
 
 class Project extends Component
 {
-    /**
-     * Create a new component instance.
-     */
+    public array $stacks;
+    public array $images;
+    
     public function __construct(
         public string $title,
-        public string $img,
         public string $about,
-        public string $stacks,
+        array $stacks,
+        array $images,
         public string $website,
         public string $github,
     )
-    {}
+    {
+        $this->stacks = $stacks;
+        $this->images = $images;
+    }
 
     /**
      * Get the view / contents that represent the component.
