@@ -133,12 +133,12 @@
 
       @keyframes fadeLeft {
           from {
-          opacity: 0.8;
-          transform: translateX(80%);
+            opacity: 0.8;
+            transform: translateX(80%);
           }
           to {
-          opacity: 1;
-          transform: translateX(0%);
+            opacity: 1;
+            transform: translateX(0%);
           }
       }
   
@@ -180,7 +180,7 @@
       .main__post img{
           width: 100%;
           height: 300px;
-          object-fit: cover;
+          object-fit: scale-down;
           border-radius: 12px;
       }
 

@@ -75,9 +75,21 @@
                 </div>
 
                 <div class="row">
+                    <x-project title="HCDEV - Petrokimia"
+                        :images="[
+                            asset('img/portofolio/petrokimia/home.png'),
+                            asset('img/portofolio/petrokimia/login.png')
+                        ]"
+                        about="HCDEV is a website that I developed during my tenure at CV Mamorasoft. This platform was crafted with the aim of assisting PT. Petrokimia Gresik in streamlining and enhancing their hiring process, ensuring efficiency and effectiveness throughout."
+                        :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Yii2","MySQL"]'
+                        website="https://mostrans.transtrack.id/" github="" />
+
                     <x-project title="Indofarm"
                         :images="[
-                            asset('img/portofolio/indofarm.png')
+                            asset('img/portofolio/indofarm/home.png'),
+                            asset('img/portofolio/indofarm/login-customer.png'),
+                            asset('img/portofolio/indofarm/login-admin.png'),
+                            asset('img/portofolio/indofarm/dashboard.png')
                         ]"
                         about="Online store website where selling genset, diesel machine and other things for support argicultur. They has product from many brands, and support payment from bank transfer to digital money like Gopay, Ovo, and Dana."
                         :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","MySQL"]'
@@ -85,23 +97,47 @@
 
                     <x-project title="Kampus Merdeka"
                         :images="[
-                            asset('img/portofolio/kampus-merdeka.png')
+                            asset('img/portofolio/mbkm/home.png'),
+                            asset('img/portofolio/mbkm/login.png'),
+                            asset('img/portofolio/mbkm/dashboard.png')
                         ]"
                         about="LMS websites focus on certain segments, like report what your do today for mentee, register program for mentee, review report from mentee for mentor, and others. Kampus merdeka is program from Education Ministry Indonesia for support education."
                         :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","CodeIgniter3","PgSQL"]'
                         website="https://kampusmerdeka.kemdikbud.go.id/" github="" />
+
+                    <x-project title="ARK - TMS"
+                        :images="[
+                            asset('img/portofolio/ark/login.png'),
+                            asset('img/portofolio/ark/dashboard.png'),
+                            asset('img/portofolio/ark/transport-order.png')
+                        ]"
+                        about="ARK TMS is a cutting-edge website meticulously crafted by me and my team at TransTrack to assist PT ARK Logistics & Transportation in managing their logistical needs. From deliveries and vendors to transporters, vehicles, drivers, finances, and others that ARK requires. ARK TMS ensures that the logistics processes at PT ARK Logistics & Transportation operate smoothly and efficiently, empowering them to deliver excellence in every aspect of their operations."
+                        :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","Livewire","MySQL"]'
+                        website="https://arksystem.transtrack.id/" github="" />
+
+                    <x-project title="MyTASK - API"
+                        :images="[
+                            asset('img/portofolio/mytask/login.png'),
+                            asset('img/portofolio/mytask/api.png'),
+                            asset('img/portofolio/mytask/dashboard.png')
+                        ]"
+                        about="MyTask is an innovative application designed by me and my team at TransTrack to meet the needs of monitoring attendance and assignments for TransTrack employees, particularly field operators. In this project, I was responsible for developing the API for MyTask and collaborated with FrontEnd Developers using ReactJS to enhance our teamwork experience. MyTask streamlines the process of monitoring and attendance, making it significantly easier and more efficient."
+                        :stacks='["PHP","Lumen","MySQL"]'
+                        website="https://mytask-api.transtrack.id/" github="" />
 
                     <x-project title="KBS - TAS"
                         :images="[
                             asset('img/portofolio/kbs-tas.png')
                         ]"
                         about="KBS TAS is website for KBS company, they use this website for manage their transportation queues, ritase, activities, exit and entry of a truck at the shipping dock. This website has feature for manage driver, vehicle, and schedule for when ship ready on shipping dock."
-                        :stacks='["HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","Livewire","PgSQL","Docker"]'
+                        :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","Livewire","PgSQL","Docker"]'
                         website="https://kbs-tas.yoo.ga/" github="" />
 
                     <x-project title="KILOGS - WMS"
                         :images="[
-                            asset('img/portofolio/kilogs-wms.png')
+                            asset('img/portofolio/kilogs/login.png'),
+                            asset('img/portofolio/kilogs/dashboard.png'),
+                            asset('img/portofolio/kilogs/inbound.png')
                         ]"
                         about="KiLogs WMS is website for KiLogs company, they use this website for manage their warehouse. This website has feature for manage product, stock, suggestion for product placment by type of product or high demand, and others."
                         :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","Livewire","PgSQL","Docker"]'
@@ -116,6 +152,16 @@
                         about="Mostrans Integration is a project developed by the TransTrack team to assist TransTrack GPS users in integrating GPS and other data into the Mostrans application. The platform is designed to enhance data integration and management, making it easy and efficient for users to leverage their GPS information."
                         :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","Livewire","MySQL","Docker"]'
                         website="https://mostrans.transtrack.id/" github="" />
+                    
+                    <x-project title="WPI - Solog"
+                        :images="[
+                            asset('img/portofolio/wpi/login.png'),
+                            asset('img/portofolio/wpi/dashboard.png'),
+                            asset('img/portofolio/wpi/schedule.png')
+                        ]"
+                        about="WPI Solog is a dynamic website meticulously crafted to empower PT Wangsa Pratama Internasional in managing their logistical requirements seamlessly. From data management to shipping, scheduling, financial management, vehicle and driver management and others that WPI requires. WPI Solog ensures that the logistics process at PT Wangsa Pratama Internasional operates smoothly and efficiently, enabling streamlined operations and enhanced productivity."
+                        :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","AngularJS","MySQL","Docker"]'
+                        website="https://wpi.solog.id/" github="" />
                 </div>
             </div>
         </section>
