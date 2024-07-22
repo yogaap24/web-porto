@@ -82,7 +82,7 @@
                         ]"
                         about="HCDEV is a website that I developed during my tenure at CV Mamorasoft. This platform was crafted with the aim of assisting PT. Petrokimia Gresik in streamlining and enhancing their hiring process, ensuring efficiency and effectiveness throughout."
                         :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Yii2","MySQL"]'
-                        website="https://mostrans.transtrack.id/" github="" />
+                        website="https://recruitment.petrokimia-gresik.com/" github="" />
 
                     <x-project title="Indofarm"
                         :images="[
@@ -142,7 +142,7 @@
                         about="KiLogs WMS is website for KiLogs company, they use this website for manage their warehouse. This website has feature for manage product, stock, suggestion for product placment by type of product or high demand, and others."
                         :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","Livewire","PgSQL","Docker"]'
                         website="https://kilogs-warehouse.yoo.ga/" github="" />
-                    
+
                     <x-project title="Mostrans Integration"
                         :images="[
                             asset('img/portofolio/mostrans/login.png'),
@@ -152,7 +152,7 @@
                         about="Mostrans Integration is a project developed by the TransTrack team to assist TransTrack GPS users in integrating GPS and other data into the Mostrans application. The platform is designed to enhance data integration and management, making it easy and efficient for users to leverage their GPS information."
                         :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","Livewire","MySQL","Docker"]'
                         website="https://mostrans.transtrack.id/" github="" />
-                    
+
                     <x-project title="WPI - Solog"
                         :images="[
                             asset('img/portofolio/wpi/login.png'),
