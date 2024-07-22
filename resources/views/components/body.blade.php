@@ -139,7 +139,7 @@
                             asset('img/portofolio/kilogs/dashboard.png'),
                             asset('img/portofolio/kilogs/inbound.png')
                         ]"
-                        about="KiLogs WMS is website for KiLogs company, they use this website for manage their warehouse. This website has feature for manage product, stock, suggestion for product placment by type of product or high demand, and others."
+                        about="KiLogs WMS is website for KiLogs company, they use this website for manage their warehouse. This website has feature for manage product, stock, suggestion for product placement by type of product or high demand, and others."
                         :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","Livewire","PgSQL","Docker"]'
                         website="https://kilogs-warehouse.yoo.ga/" github="" />
 
