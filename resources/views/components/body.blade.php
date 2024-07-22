@@ -91,7 +91,7 @@
                             asset('img/portofolio/indofarm/login-admin.png'),
                             asset('img/portofolio/indofarm/dashboard.png')
                         ]"
-                        about="Online store website where selling genset, diesel machine and other things for support argicultur. They has product from many brands, and support payment from bank transfer to digital money like Gopay, Ovo, and Dana."
+                        about="Online store website where selling genset, diesel machine and other things for support agriculture. They have product from many brands, and support payment from bank transfer to digital money like Gopay, Ovo, and Dana."
                         :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","MySQL"]'
                         website="https://indofarm.id/" github="" />
 
