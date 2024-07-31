@@ -166,6 +166,30 @@
             </div>
         </section>
         <!--================ End Projects Area =================-->
+
+        <!--================ Start Personal / Github Projects Area =================-->
+        <section class="projects_area" id="github">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <div class="main_title">
+                            <h2>Personal / Github Projects</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <x-project title="Shoes Store"
+                        :images="[
+                            asset('img/personal-projects/shoes-store.png')
+                        ]"
+                        about="Shoes Store is a simple shoe shopping application based on Android, developed with Kotlin. The application uses Firebase as the database and offers various features to make shoe shopping easier for users."
+                        :stacks='["Kotlin","MVVM","Firebase"]'
+                        website="" github="https://github.com/yogaap24/shoes-store" />
+                </div>
+            </div>
+        </section>
+
         <x-project-detail />
     </main>
 </Layout>

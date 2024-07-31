@@ -157,7 +157,7 @@ $(document).ready(function () {
         });
         var about = $(this).find(".about-data").text();
         var stacks = $(this).find(".stacks").map(function () {
-              return $(this).text();
+            return $(this).text();
         }).get();
         var uniqueStacks = [...new Set(stacks)];
         if (uniqueStacks.length > 0) {
@@ -174,6 +174,12 @@ $(document).ready(function () {
         $("#detail-website").attr("href", website);
         $("#detail-github").text(github);
         $("#detail-github").attr("href", github);
+
+        if (website == "") {
+            $("#container-website").addClass("d-none");
+        } else {
+            $("#container-website").removeClass("d-none");
+        }
 
         if (github == "") {
             $("#container-github").addClass("d-none");
