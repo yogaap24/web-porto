@@ -54,7 +54,7 @@
                                 years being developer, I have working on variety project website, apps and api.
                             </p>
                             <a class="primary_btn" target="_blank"
-                                href="https://drive.google.com/file/d/1EcnqM2DGZ6sQ-XkoTyb_YEdtOZQqhRa0/view?usp=drive_link"><span>Download
+                                href="https://drive.google.com/file/d/1mkX5RndV6dPTs2hoAcdXdSzMrN4-CURY/view?usp=drive_link"><span>Download
                                     CV</span></a>
                         </div>
                     </div>
