@@ -168,7 +168,7 @@
         <!--================ End Projects Area =================-->
 
         <!--================ Start Personal / Github Projects Area =================-->
-        <section class="projects_area" id="github">
+        <section class="personal_projects_area" id="personal-projects">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center">
@@ -179,12 +179,25 @@
                 </div>
 
                 <div class="row">
+                    <x-project title="Fruit App"
+                        :images="[
+                            asset('img/personal-projects/fruitApp/mainPage.png'),
+                            asset('img/personal-projects/fruitApp/detailPage.png'),
+                            asset('img/personal-projects/fruitApp/favPage.png')
+                        ]"
+                        about="Fruit App is apps to see list of fruits and detail of fruits. This app use local storage to save favorite fruits. User can see list of fruits, search fruit by name, see detail of fruit, and add fruit to favorite."
+                        :stacks='["Kotlin","Jetpack Compose", "MVVM", "Local Storage"]'
+                        website="" github="https://github.com/yogaap24/fruitApp" />
+
                     <x-project title="Shoes Store"
                         :images="[
-                            asset('img/personal-projects/shoes-store.png')
+                            asset('img/personal-projects/shoes-store/mainPage.png'),
+                            asset('img/personal-projects/shoes-store/detailPage.png'),
+                            asset('img/personal-projects/shoes-store/cartPage.png'),
+                            asset('img/personal-projects/shoes-store/profilePage.png')
                         ]"
                         about="Shoes Store is a simple shoe shopping application based on Android, developed with Kotlin. The application uses Firebase as the database and offers various features to make shoe shopping easier for users."
-                        :stacks='["Kotlin","MVVM","Firebase"]'
+                        :stacks='["Kotlin","MVVM","Local Storage", "Firebase Auth", "Firebase Firestore", "Firebase Storage"]'
                         website="" github="https://github.com/yogaap24/shoes-store" />
                 </div>
             </div>

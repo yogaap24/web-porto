@@ -15,6 +15,7 @@
                     <ul class="nav navbar-nav menu_nav justify-content-end">
                         <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
                         <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#personal-projects">Personal Projects</a></li>
                         </li>
                     </ul>
                 </div>
