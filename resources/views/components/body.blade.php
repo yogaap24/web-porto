@@ -162,6 +162,42 @@
                         about="WPI Solog is a dynamic website meticulously crafted to empower PT Wangsa Pratama Internasional in managing their logistical requirements seamlessly. From data management to shipping, scheduling, financial management, vehicle and driver management and others that WPI requires. WPI Solog ensures that the logistics process at PT Wangsa Pratama Internasional operates smoothly and efficiently, enabling streamlined operations and enhanced productivity."
                         :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","AngularJS","MySQL","Docker"]'
                         website="https://wpi.solog.id/" github="" />
+
+                    <x-project title="Pintro Pay"
+                        :images="[
+                            asset('img/portofolio/pintropay/login.png'),
+                            asset('img/portofolio/pintropay/dashboard.png'),
+                            asset('img/portofolio/pintropay/report.png'),
+                            asset('img/portofolio/pintropay/user-manajemen.png')
+                        ]"
+                        about="Pintro Pay is a payment gateway platform developed by PT Indoglobal Nusa Persada, designed to manage payments, transactions, and other related services. Similar to other payment gateways like Doku and Midtrans, Pintro Pay supports various Pintro products and is also available as a standalone solution."
+                        :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","MySQL","WhatsApp API", "Docker"]'
+                        website="https://pay.pintro.id/" github="" />
+
+                    <x-project title="Sista Sekolah Auliya - Thinkspedia"
+                        :images="[
+                            asset('img/portofolio/thinkspedia/login.png'),
+                            asset('img/portofolio/thinkspedia/home.png'),
+                            asset('img/portofolio/thinkspedia/dashboard-employee.png'),
+                            asset('img/portofolio/thinkspedia/dashboard-finance.png'),
+                            asset('img/portofolio/thinkspedia/dashboard-education.png')
+                        ]"
+                        about="Sista Sekolah Auliya is a platform developed by Thinkspedia for Sekolah Auliya, providing tools to manage students, teachers, parents, and administrative tasks. It includes features for new student registration, reporting academic progress, financial management, and employee administration, supporting a wide range of school operations."
+                        :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","MySQL","Jenkins", "Docker"]'
+                        website="https://sista.sekolahauliya.sch.id/" github="" />
+
+                    <x-project title="Tako POS"
+                        :images="[
+                            asset('img/portofolio/takopos/login.png'),
+                            asset('img/portofolio/takopos/dashboard.png'),
+                            asset('img/portofolio/takopos/packages.png'),
+                            asset('img/portofolio/takopos/store.png'),
+                            asset('img/portofolio/takopos/food-list.png'),
+                            asset('img/portofolio/takopos/order-history.png'),
+                        ]"
+                        about="Tako POS is a Point of Sale system I developed as my own product, designed to empower small and medium businesses in managing sales transactions, inventory, and customer data. Featuring a comprehensive suite of tools, Tako POS includes product management, inventory tracking, sales reporting, and more, making it an essential solution for streamlining business operations."
+                        :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","ChartJS", "Laravel","MySQL", "Docker", "API Currency Exchange"]'
+                        website="https://sista.sekolahauliya.sch.id/" github="" />
                 </div>
             </div>
         </section>

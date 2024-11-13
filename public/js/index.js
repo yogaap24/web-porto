@@ -187,26 +187,34 @@ $(document).ready(function () {
             $("#container-github").removeClass("d-none");
         }
 
-        $("#detail-images .carousel-inner").empty();
-
-        images.forEach(function (image, index) {
-            var activeClass = index === 0 ? 'active' : '';
+        if (images.length > 1) {
+            $("#detail-images .carousel-inner").empty();
+            images.forEach(function (image, index) {
+                var activeClass = index === 0 ? 'active' : '';
+                $("#detail-images .carousel-inner").append(`
+                    <div class="carousel-item ${activeClass}">
+                        <img src="${image}" class="d-block w-100" alt="...">
+                    </div>
+                `);
+            });
+        
+            $("#detail-images .carousel-indicators").empty();
+            images.forEach(function (image, index) {
+                var activeClass = index === 0 ? 'active' : '';
+                var indicatorHtml = `<li data-target="#detail-images" data-slide-to="${index}" class="${activeClass}"></li>`;
+                $("#detail-images .carousel-indicators").append(indicatorHtml);
+            });
+        
+            $("#detail-images").show();
+            $("#prev, #next").show();
+        } else if (images.length === 1) {
+            var image = images[0];
             $("#detail-images .carousel-inner").append(`
-                <div class="carousel-item ${activeClass}">
-                    <img src="${image}" class="d-block w-100" alt="...">
-                </div>
+                <img src="${image}" class="d-block w-100" alt="...">
             `);
-        });
-
-        // Clear existing carousel indicators
-        $("#detail-images .carousel-indicators").empty();
-
-        // Add carousel indicators
-        images.forEach(function (image, index) {
-            var activeClass = index === 0 ? 'active' : '';
-            var indicatorHtml = `<li data-target="#detail-images" data-slide-to="${index}" class="${activeClass}"></li>`;
-            $("#detail-images .carousel-indicators").append(indicatorHtml);
-        });               
+            $("#detail-images").show();
+            $("#prev, #next").hide();
+        }
     });
 
     // Reinitialize the carousel
