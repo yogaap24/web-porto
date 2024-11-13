@@ -187,8 +187,10 @@ $(document).ready(function () {
             $("#container-github").removeClass("d-none");
         }
 
+        $("#detail-images .carousel-inner").empty();
+        $("#detail-images .carousel-indicators").empty();
+
         if (images.length > 1) {
-            $("#detail-images .carousel-inner").empty();
             images.forEach(function (image, index) {
                 var activeClass = index === 0 ? 'active' : '';
                 $("#detail-images .carousel-inner").append(`
@@ -197,23 +199,26 @@ $(document).ready(function () {
                     </div>
                 `);
             });
-        
-            $("#detail-images .carousel-indicators").empty();
+
             images.forEach(function (image, index) {
                 var activeClass = index === 0 ? 'active' : '';
                 var indicatorHtml = `<li data-target="#detail-images" data-slide-to="${index}" class="${activeClass}"></li>`;
                 $("#detail-images .carousel-indicators").append(indicatorHtml);
             });
-        
+
             $("#detail-images").show();
             $("#prev, #next").show();
         } else if (images.length === 1) {
             var image = images[0];
             $("#detail-images .carousel-inner").append(`
-                <img src="${image}" class="d-block w-100" alt="...">
+                <div class="carousel-item active">
+                    <img src="${image}" class="d-block w-100" alt="...">
+                </div>
             `);
             $("#detail-images").show();
             $("#prev, #next").hide();
+        } else {
+            $("#detail-images").hide();
         }
     });
 
