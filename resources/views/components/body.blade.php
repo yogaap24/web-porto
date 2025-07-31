@@ -14,7 +14,7 @@
                             <div class="banner_content">
                                 <h3 class="text-uppercase">Hello</h3>
                                 <h1 class="text-uppercase">I am Yoga Agung Prasetio</h1>
-                                <h5 class="text-uppercase">Full Stack Developer</h5>
+                                <h5 class="text-uppercase">Software Developer</h5>
                                 <div class="d-flex align-items-center">
                                     <a class="primary_btn" href="https://wa.me/62881080002564" target="_blank"><span>Get
                                             In Touch</span></a>
