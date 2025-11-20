@@ -32,7 +32,7 @@ COPY --from=builder /usr/local/lib/php /usr/local/lib/php
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /etc/group /etc/group
 
-# 2. Copy PHP configs (penting untuk ekstensi yang baru di-install)
+# 2. Copy PHP configs
 COPY --from=builder /usr/local/etc/php /usr/local/etc/php
 
 # 3. Copy kode aplikasi dan vendor
