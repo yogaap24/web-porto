@@ -64,17 +64,30 @@ jobs:
 
             cd /root/workspace/web-porto
 
-            docker-compose pull
+            docker-compose rm -f -s php-fpm || true
+            docker-compose rm -f -s nginx || true
 
+            docker-compose pull
             docker-compose up -d --force-recreate
 
-            echo "Running final Laravel setup and cache clearance..."
+            sudo mkdir -p storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
+            sudo chown -R 82:82 storage bootstrap
+            sudo chmod -R 775 storage bootstrap
 
-            docker exec web-porto-prod-php-fpm php artisan key:generate
+            sleep 5
 
-            docker exec web-porto-prod-php-fpm php artisan config:clear
-            docker exec web-porto-prod-php-fpm php artisan cache:clear
+            if docker ps --format '{{.Names}}' | grep -q "web-porto-prod-php-fpm"; then
+                echo "Running final Laravel setup..."
 
-            docker exec web-porto-prod-php-fpm chmod -R 775 storage bootstrap/cache
+                docker exec web-porto-prod-php-fpm php artisan key:generate
 
+                docker exec web-porto-prod-php-fpm php artisan config:clear
+                docker exec web-porto-prod-php-fpm php artisan cache:clear
+
+                echo "✅ Deployment dan Setup Laravel Selesai."
+            else
+                echo "❌ GAGAL: Container PHP-FPM tidak stabil. Cek logs Nginx/PHP-FPM."
+            fi
+
+            # 4. Bersihkan image lama
             docker image prune -f
