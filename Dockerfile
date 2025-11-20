@@ -66,10 +66,6 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
 # Gunakan user non-root untuk security
 USER www-data
 
-# Healthcheck
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD wget --no-verbose --tries=1 --spider http://localhost:9000 || exit 1
-
 # Expose port
 EXPOSE 9000
 
