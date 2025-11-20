@@ -1,8 +1,8 @@
 # Stage 1: BUILD (Install dependensi dan Composer)
 FROM php:8.2-fpm-alpine AS builder
 
-# 1. Install Tool yang dibutuhkan HANYA untuk proses build
-RUN apk add --no-cache git libzip-dev zlib-dev libpng-dev libjpeg-turbo-dev libfreetype-dev libpq-dev zip unzip \
+# 1. Install Tool yang dibutuhkan
+RUN apk add --no-cache git libzip-dev zlib-dev libpng-dev libjpeg-turbo-dev freetype-dev libpq-dev zip unzip \
     && rm -rf /var/cache/apk/*
 
 # 2. Install Composer (Versi 2.3.3 sesuai permintaan)
