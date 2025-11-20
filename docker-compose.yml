@@ -1,6 +1,6 @@
 version: '3'
 services:
-    ${IMAGE_NAME}:
+    web-porto:
         build:
             context: .
             dockerfile: Dockerfile
