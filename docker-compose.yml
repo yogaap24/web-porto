@@ -1,30 +1,34 @@
-version: '3'
+version: '3.8'
+
 services:
     application:
-        build:
-            context: .
-            dockerfile: Dockerfile
-        image: ${IMAGE_NAME}
+        image: ${DOCKER_USERNAME}/${IMAGE_NAME}:latest
         container_name: ${IMAGE_NAME}-${APP_ENV}-application
         restart: unless-stopped
         tty: true
+        env_file:
+            - .env
         environment:
             SERVICE_NAME: ${IMAGE_NAME}-${APP_ENV}-application
             SERVICE_TAGS: dev
         working_dir: /var/www
         volumes:
-            - ./:/var/www
-            - /var/www/vendor
+            - ./storage:/var/www/storage
+        deploy:
+            resources:
+                limits:
+                    cpus: '1.0'
+                    memory: 400M
         networks:
             - database-network
             - proxy
         labels:
             - "traefik.enable=true"
-            - "traefik.http.routers.${IMAGE_NAME}-${APP_ENV}.entrypoints=http"
+            - "traefik.http.routers.${IMAGE_NAME}-${APP_ENV}.entrypoints=web"
             - "traefik.http.routers.${IMAGE_NAME}-${APP_ENV}.rule=Host(`${APP_HOST}`)"
             - "traefik.http.middlewares.${IMAGE_NAME}-${APP_ENV}-https-redirect.redirectscheme.scheme=https"
             - "traefik.http.routers.${IMAGE_NAME}-${APP_ENV}.middlewares=${IMAGE_NAME}-${APP_ENV}-https-redirect"
-            - "traefik.http.routers.${IMAGE_NAME}-${APP_ENV}-secure.entrypoints=https"
+            - "traefik.http.routers.${IMAGE_NAME}-${APP_ENV}-secure.entrypoints=websecure"
             - "traefik.http.routers.${IMAGE_NAME}-${APP_ENV}-secure.rule=Host(`${APP_HOST}`)"
             - "traefik.http.routers.${IMAGE_NAME}-${APP_ENV}-secure.tls=true"
             - "traefik.http.routers.${IMAGE_NAME}-${APP_ENV}-secure.tls.certresolver=http"
@@ -32,7 +36,6 @@ services:
             - "traefik.http.services.${IMAGE_NAME}-${APP_ENV}.loadbalancer.server.port=9000"
             - "traefik.docker.network=proxy"
 
-#Docker Networks
 networks:
     database-network:
         external: true
