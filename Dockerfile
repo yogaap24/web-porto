@@ -6,7 +6,7 @@ RUN apk add --no-cache git libzip-dev zlib-dev libpng-dev libjpeg-turbo-dev free
     && rm -rf /var/cache/apk/*
 
 # 2. Install Composer (Versi 2.3.3)
-COPY --from=composer:2.3.3 /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:2.3.3 /usr/local/bin/composer /usr/local/bin/composer
 
 # 3. Konfigurasi PHP Extension (Kompilasi)
 RUN docker-php-ext-configure pgsql --with-pgsql=/usr/local/pgsql \
@@ -43,6 +43,5 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
 # Ganti mode ke user non-root
 USER www-data
 
-# 4. Menjalankan PHP-FPM (standar production)
 CMD ["php-fpm"]
 EXPOSE 9000
