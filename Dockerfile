@@ -19,7 +19,6 @@ WORKDIR /var/www
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-scripts
 COPY . /var/www
-RUN chmod -R 777 storage bootstrap
 
 # Stage 2: PRODUCTION (Image final yang ramping)
 FROM php:8.2-fpm-alpine
