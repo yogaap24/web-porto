@@ -1,15 +1,15 @@
 version: '3.8'
 
 services:
-    php-fpm:
+    web-porto:
         image: ${DOCKER_USERNAME}/${IMAGE_NAME}:latest
-        container_name: ${IMAGE_NAME}-${APP_ENV}-php-fpm
+        container_name: ${IMAGE_NAME}
         restart: unless-stopped
         tty: true
         env_file:
             - .env
         environment:
-            SERVICE_NAME: ${IMAGE_NAME}-${APP_ENV}-php-fpm
+            SERVICE_NAME: ${IMAGE_NAME}
             SERVICE_TAGS: dev
         working_dir: /var/www
         volumes:
@@ -33,7 +33,7 @@ services:
             - ./:/var/www
             - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
         depends_on:
-            - php-fpm
+            - web-porto
         networks:
             - database-network
             - proxy
