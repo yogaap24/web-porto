@@ -54,9 +54,6 @@ RUN apk add --no-cache \
 COPY --from=builder /usr/local/lib/php/extensions /usr/local/lib/php/extensions
 COPY --from=builder /usr/local/etc/php/conf.d /usr/local/etc/php/conf.d
 
-# Copy custom PHP configuration
-COPY php.ini /usr/local/etc/php/conf.d/custom.ini
-
 # Copy aplikasi dari builder
 WORKDIR /var/www
 COPY --from=builder --chown=www-data:www-data /var/www /var/www
