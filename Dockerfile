@@ -69,5 +69,5 @@ USER www-data
 # Expose port
 EXPOSE 9000
 
-# Start PHP built-in server pointing to public directory
-CMD ["php", "-S", "0.0.0.0:9000", "-t", "public", "public/index.php"]
+# Start PHP built-in server with custom router for Laravel
+CMD ["php", "-S", "0.0.0.0:9000", "server.php"]
