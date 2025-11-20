@@ -23,7 +23,7 @@ COPY . /var/www
 # Stage 2: PRODUCTION (Image final yang ramping)
 FROM php:8.2-fpm-alpine
 
-RUN apk add --no-cache libpq libpng libjpeg-turbo freetype \
+RUN apk add --no-cache libpq libpng libjpeg-turbo freetype libzip \
     && rm -rf /var/cache/apk/*
 
 COPY --from=builder /usr/local/lib/php /usr/local/lib/php
