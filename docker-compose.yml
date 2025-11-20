@@ -1,10 +1,7 @@
 version: '3'
 services:
     web-porto:
-        build:
-            context: .
-            dockerfile: Dockerfile
-        image: ${IMAGE_NAME}
+        image: ${DOCKER_USERNAME}/${IMAGE_NAME}:latest
         container_name: ${IMAGE_NAME}-${APP_ENV}
         restart: unless-stopped
         tty: true
@@ -13,8 +10,8 @@ services:
             SERVICE_TAGS: dev
         working_dir: /var/www
         volumes:
-            - ./:/var/www
-            - /var/www/vendor
+            - ./storage:/var/www/storage
+            - ./.env:/var/www/.env
         networks:
             - database-network
             - proxy
