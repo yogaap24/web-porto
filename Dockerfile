@@ -22,17 +22,17 @@ RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-scripts
 COPY . /var/www
 
 # Stage 2: PRODUCTION (Image final yang ramping)
-# Gunakan Alpine CLI base yang sangat ringan (FPM sudah di-install di stage builder)
 FROM php:8.2-fpm-alpine
 
-# Copy user dan kode dari stage builder
+# 1. Copy user dan group
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /etc/group /etc/group
-COPY --from=builder /var/www /var/www
 
-# Copy Composer/Vendor (Sudah di-install tanpa --no-dev)
-COPY --from=builder /usr/local/bin/composer /usr/local/bin/composer
+# 2. Copy PHP configs (penting untuk ekstensi yang baru di-install)
 COPY --from=builder /usr/local/etc/php /usr/local/etc/php
+
+# 3. Copy kode aplikasi dan vendor (Vendor sudah ada di /var/www)
+COPY --from=builder /var/www /var/www
 
 # Perbaikan permission storage Laravel
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
