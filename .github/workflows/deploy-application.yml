@@ -64,7 +64,7 @@ jobs:
 
             cd /root/workspace/web-porto
 
-            docker-compose rm -f -s php-fpm || true
+            docker-compose rm -f -s ${IMAGE_NAME} || true
             docker-compose rm -f -s nginx || true
 
             docker-compose pull
@@ -76,13 +76,13 @@ jobs:
 
             sleep 5
 
-            if docker ps --format '{{.Names}}' | grep -q "web-porto-prod-php-fpm"; then
+            if docker ps --format '{{.Names}}' | grep -q "${IMAGE_NAME}"; then
                 echo "Running final Laravel setup..."
 
-                docker exec web-porto-prod-php-fpm php artisan key:generate
+                docker exec ${IMAGE_NAME} php artisan key:generate
 
-                docker exec web-porto-prod-php-fpm php artisan config:clear
-                docker exec web-porto-prod-php-fpm php artisan cache:clear
+                docker exec ${IMAGE_NAME} php artisan config:clear
+                docker exec ${IMAGE_NAME} php artisan cache:clear
 
                 echo "✅ Deployment dan Setup Laravel Selesai."
             else
