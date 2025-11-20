@@ -1,7 +1,7 @@
 # Stage 1: BUILDER (Instalasi dan Kompilasi)
 FROM php:8.2-fpm-alpine AS builder
 
-# 1. Install Tool & Dev Dependencies (untuk kompilasi)
+# 1. Install Tool & Dev Dependencies
 RUN apk add --no-cache git libzip-dev zlib-dev libpng-dev libjpeg-turbo-dev freetype-dev libpq-dev zip unzip \
     && rm -rf /var/cache/apk/*
 
@@ -26,6 +26,8 @@ FROM php:8.2-fpm-alpine
 RUN apk add --no-cache libpq libpng libjpeg-turbo freetype \
     && rm -rf /var/cache/apk/*
 
+COPY --from=builder /usr/local/lib/php /usr/local/lib/php
+
 # 1. Copy user dan group
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /etc/group /etc/group
@@ -43,5 +45,6 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
 # Ganti mode ke user non-root
 USER www-data
 
+# Perintah menjalankan PHP-FPM (standar production)
 CMD ["php-fpm"]
 EXPOSE 9000
