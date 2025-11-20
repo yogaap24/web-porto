@@ -68,4 +68,13 @@ jobs:
 
             docker-compose up -d --force-recreate
 
+            echo "Running final Laravel setup and cache clearance..."
+
+            docker exec web-porto-prod-php-fpm php artisan key:generate
+
+            docker exec web-porto-prod-php-fpm php artisan config:clear
+            docker exec web-porto-prod-php-fpm php artisan cache:clear
+
+            docker exec web-porto-prod-php-fpm chmod -R 775 storage bootstrap/cache
+
             docker image prune -f
