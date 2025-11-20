@@ -43,6 +43,6 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
 # Ganti mode ke user non-root
 USER www-data
 
-# Perintah menjalankan PHP-FPM (standar production)
+# 4. Menjalankan PHP-FPM (standar production)
 CMD ["php-fpm"]
 EXPOSE 9000
