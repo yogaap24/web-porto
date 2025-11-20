@@ -48,6 +48,7 @@ RUN apk add --no-cache \
     libjpeg-turbo \
     freetype \
     libzip \
+    wget \
     && rm -rf /var/cache/apk/*
 
 # Copy PHP extensions dan config dari builder
@@ -67,10 +68,10 @@ USER www-data
 
 # Healthcheck
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD php artisan --version || exit 1
+    CMD wget --no-verbose --tries=1 --spider http://localhost:9000 || exit 1
 
 # Expose port
 EXPOSE 9000
 
-# Start Laravel development server
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=9000"]
+# Start PHP built-in server pointing to public directory
+CMD ["php", "-S", "0.0.0.0:9000", "-t", "public", "public/index.php"]

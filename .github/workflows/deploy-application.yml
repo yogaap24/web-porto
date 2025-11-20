@@ -52,6 +52,7 @@ jobs:
           source: "docker-compose.yml,.env"
           target: "/root/workspace/web-porto"
           rm: false
+          strip_components: 0
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@master
