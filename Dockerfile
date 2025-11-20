@@ -1,50 +1,79 @@
-# Stage 1: BUILDER (Instalasi dan Kompilasi)
-FROM php:8.2-fpm-alpine AS builder
+# Stage 1: Builder - Install dependencies dan build aplikasi
+FROM php:8.2-cli-alpine AS builder
 
-# 1. Install Tool & Dev Dependencies
-RUN apk add --no-cache git libzip-dev zlib-dev libpng-dev libjpeg-turbo-dev freetype-dev libpq-dev zip unzip \
+# Install dependencies build-time
+RUN apk add --no-cache \
+    git \
+    libzip-dev \
+    libpng-dev \
+    libjpeg-turbo-dev \
+    freetype-dev \
+    postgresql-dev \
+    zip \
+    unzip \
     && rm -rf /var/cache/apk/*
 
-# 2. Install Composer (Versi 2.3.3)
+# Install Composer
 COPY --from=composer:2.3.3 /usr/bin/composer /usr/local/bin/composer
 
-# 3. Konfigurasi PHP Extension (Kompilasi)
+# Configure dan install PHP extensions
 RUN docker-php-ext-configure pgsql --with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-install pdo pdo_pgsql pgsql \
+    && docker-php-ext-install -j$(nproc) pdo pdo_pgsql pgsql \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd opcache bcmath zip
+    && docker-php-ext-install -j$(nproc) gd zip opcache bcmath
 
-# 4. Copy kode dan install Composer
+# Set working directory
 WORKDIR /var/www
+
+# Copy composer files dan install dependencies dulu (untuk caching layer)
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-scripts
-COPY . /var/www
+RUN composer install --no-dev --optimize-autoloader --no-scripts --no-autoloader --prefer-dist
 
-# Stage 2: PRODUCTION (Image final yang ramping)
-FROM php:8.2-fpm-alpine
+# Copy seluruh aplikasi
+COPY . .
 
-RUN apk add --no-cache libpq libpng libjpeg-turbo freetype libzip \
+# Generate autoloader dan optimize
+RUN composer dump-autoload --optimize --no-dev \
+    && php artisan config:clear \
+    && php artisan route:clear \
+    && php artisan view:clear
+
+# Stage 2: Production - Image final yang ringan
+FROM php:8.2-cli-alpine
+
+# Install runtime dependencies (tanpa build tools)
+RUN apk add --no-cache \
+    libpq \
+    libpng \
+    libjpeg-turbo \
+    freetype \
+    libzip \
     && rm -rf /var/cache/apk/*
 
-COPY --from=builder /usr/local/lib/php /usr/local/lib/php
+# Copy PHP extensions dan config dari builder
+COPY --from=builder /usr/local/lib/php/extensions /usr/local/lib/php/extensions
+COPY --from=builder /usr/local/etc/php/conf.d /usr/local/etc/php/conf.d
 
-# 1. Copy user dan group
-COPY --from=builder /etc/passwd /etc/passwd
-COPY --from=builder /etc/group /etc/group
+# Copy custom PHP configuration
+COPY php.ini /usr/local/etc/php/conf.d/custom.ini
 
-# 2. Copy PHP configs
-COPY --from=builder /usr/local/etc/php /usr/local/etc/php
+# Copy aplikasi dari builder
+WORKDIR /var/www
+COPY --from=builder --chown=www-data:www-data /var/www /var/www
 
-# 3. Copy kode aplikasi dan vendor
-COPY --from=builder /var/www /var/www
-
-# Perbaikan permission storage Laravel
+# Fix permissions untuk storage dan cache
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
-# Ganti mode ke user non-root
+# Gunakan user non-root untuk security
 USER www-data
 
-# Perintah menjalankan PHP-FPM (standar production)
-CMD ["php-fpm"]
+# Healthcheck
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD php artisan --version || exit 1
+
+# Expose port
 EXPOSE 9000
+
+# Start Laravel development server
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=9000"]

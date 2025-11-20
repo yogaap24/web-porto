@@ -1,4 +1,4 @@
-name: CI/CD Web-Porto (Laravel FPM)
+name: CI/CD Web-Porto (Laravel)
 
 on:
   push:
@@ -49,7 +49,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
-          source: "docker-compose.yml,.env,nginx.conf"
+          source: "docker-compose.yml,.env"
           target: "/root/workspace/web-porto"
           rm: false
 
@@ -65,13 +65,12 @@ jobs:
             cd /root/workspace/web-porto
 
             docker-compose rm -f -s ${{ secrets.IMAGE_NAME }} || true
-            docker-compose rm -f -s nginx || true
 
             docker-compose pull
             docker-compose up -d --force-recreate
 
             sudo mkdir -p storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
-            sudo chown -R 82:82 storage bootstrap
+            sudo chown -R www-data:www-data storage bootstrap
             sudo chmod -R 775 storage bootstrap
 
             sleep 5
@@ -86,7 +85,7 @@ jobs:
 
                 echo "✅ Deployment dan Setup Laravel Selesai."
             else
-                echo "❌ GAGAL: Container PHP-FPM tidak stabil. Cek logs Nginx/PHP-FPM."
+                echo "❌ GAGAL: Container tidak stabil. Cek logs dengan: docker logs ${{ secrets.IMAGE_NAME }}"
             fi
 
             # 4. Bersihkan image lama
