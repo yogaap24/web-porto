@@ -1,14 +1,14 @@
 # Stage 1: BUILDER (Instalasi dan Kompilasi)
 FROM php:8.2-fpm-alpine AS builder
 
-# 1. Install Tool & Dev Dependencies
+# 1. Install Tool & Dev Dependencies (Kompilasi)
 RUN apk add --no-cache git libzip-dev zlib-dev libpng-dev libjpeg-turbo-dev freetype-dev libpq-dev zip unzip \
     && rm -rf /var/cache/apk/*
 
 # 2. Install Composer (Versi 2.3.3)
 COPY --from=composer:2.3.3 /usr/local/bin/composer /usr/local/bin/composer
 
-# 3. Konfigurasi PHP Extension (Kompilasi)
+# 3. Konfigurasi PHP Extension (Kompilasi ekstensi)
 RUN docker-php-ext-configure pgsql --with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_pgsql pgsql \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
