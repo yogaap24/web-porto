@@ -39,7 +39,7 @@ RUN composer dump-autoload --optimize --no-dev \
     && php artisan view:clear
 
 # Stage 2: Production - Image final yang ringan
-FROM php:8.2-cli-alpine
+FROM php:8.2-fpm-alpine
 
 # Install runtime dependencies (tanpa build tools)
 RUN apk add --no-cache \
@@ -69,5 +69,5 @@ USER www-data
 # Expose port
 EXPOSE 9000
 
-# Start PHP built-in server with custom router for Laravel
-CMD ["php", "-S", "0.0.0.0:9000", "server.php"]
+# Jalankan PHP-FPM, bukan built-in server
+CMD ["php-fpm"]
