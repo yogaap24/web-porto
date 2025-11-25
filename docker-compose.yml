@@ -9,6 +9,7 @@ services:
     volumes:
       - storage_data:/var/www/storage
       - webporto_code:/var/www:ro
+      - ./.env:/var/www/.env:ro
     networks:
       - database-network
       - proxy
