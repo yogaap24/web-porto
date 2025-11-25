@@ -34,7 +34,7 @@ services:
     depends_on:
       - app
     volumes:
-      - ./nginx/site.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx:/etc/nginx/conf.d:ro
       - ./public:/var/www/public:ro
     networks:
       - proxy
