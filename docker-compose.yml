@@ -8,8 +8,7 @@ services:
     working_dir: /var/www
     volumes:
       - storage_data:/var/www/storage
-      - bootstrap_cache:/var/www/bootstrap/cache
-      - ./.env:/var/www/.env:ro
+      - ./.env:/var/www/.env
       - webporto_code:/var/www:ro
     networks:
       - database-network
@@ -61,7 +60,6 @@ services:
 
 volumes:
   storage_data:
-  bootstrap_cache:
   webporto_code:
 
 networks:

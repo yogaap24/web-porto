@@ -65,8 +65,7 @@ jobs:
 
             cd /root/workspace/web-porto
 
-            # Stop containers but keep volumes
-            docker-compose down
+            docker-compose down -v
 
             # Pull latest image
             docker-compose pull
