@@ -65,29 +65,53 @@ jobs:
 
             cd /root/workspace/web-porto
 
-            docker-compose down -v
+            # Stop containers but keep volumes
+            docker-compose down
 
+            # Pull latest image
             docker-compose pull
+
+            # Start containers
             docker-compose up -d --force-recreate
 
-            sudo mkdir -p storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
-            sudo chown -R www-data:www-data storage bootstrap
-            sudo chmod -R 775 storage bootstrap
+            # Wait for containers to be ready
+            sleep 10
 
-            sleep 5
-
+            # Check if container is running
             if docker ps --format '{{.Names}}' | grep -q "${{ secrets.IMAGE_NAME }}"; then
-                echo "Running final Laravel setup..."
+                echo "✅ Container is running. Running Laravel setup..."
 
-                docker exec ${{ secrets.IMAGE_NAME }} php artisan key:generate
+                # Check if .env exists and has APP_KEY
+                if docker exec ${{ secrets.IMAGE_NAME }} test -f /var/www/.env; then
+                    echo "✓ .env file found"
 
-                docker exec ${{ secrets.IMAGE_NAME }} php artisan config:clear
-                docker exec ${{ secrets.IMAGE_NAME }} php artisan cache:clear
+                    # Only generate key if APP_KEY is empty
+                    if ! docker exec ${{ secrets.IMAGE_NAME }} grep -q "^APP_KEY=base64:" /var/www/.env; then
+                        echo "Generating APP_KEY..."
+                        docker exec ${{ secrets.IMAGE_NAME }} php artisan key:generate --force
+                    else
+                        echo "✓ APP_KEY already exists"
+                    fi
+                else
+                    echo "⚠️  Warning: .env file not found in container"
+                fi
+
+                # Clear caches
+                echo "Clearing caches..."
+                docker exec ${{ secrets.IMAGE_NAME }} php artisan config:clear || echo "⚠️  Config clear failed"
+                docker exec ${{ secrets.IMAGE_NAME }} php artisan cache:clear || echo "⚠️  Cache clear failed"
+                docker exec ${{ secrets.IMAGE_NAME }} php artisan view:clear || echo "⚠️  View clear failed"
+
+                # Fix permissions (run as root in container)
+                echo "Setting permissions..."
+                docker exec -u root ${{ secrets.IMAGE_NAME }} chown -R app:app /var/www/storage /var/www/bootstrap/cache || echo "⚠️  Permission fix failed"
+                docker exec -u root ${{ secrets.IMAGE_NAME }} chmod -R 775 /var/www/storage /var/www/bootstrap/cache || echo "⚠️  Permission fix failed"
 
                 echo "✅ Deployment dan Setup Laravel Selesai."
             else
-                echo "❌ GAGAL: Container tidak stabil. Cek logs dengan: docker logs ${{ secrets.IMAGE_NAME }}"
+                echo "❌ GAGAL: Container tidak berjalan. Cek logs dengan: docker logs ${{ secrets.IMAGE_NAME }}"
+                exit 1
             fi
 
-            # 4. Bersihkan image lama
+            # Clean up old images
             docker image prune -f
