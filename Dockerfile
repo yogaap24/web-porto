@@ -1,73 +1,46 @@
-# Stage 1: Builder - Install dependencies dan build aplikasi
-FROM php:8.2-cli-alpine AS builder
+# syntax=docker/dockerfile:1
+### Builder
+FROM php:8.2-fpm-alpine AS builder
 
-# Install dependencies build-time
+# build deps
 RUN apk add --no-cache \
-    git \
-    libzip-dev \
-    libpng-dev \
-    libjpeg-turbo-dev \
-    freetype-dev \
-    postgresql-dev \
-    zip \
-    unzip \
-    && rm -rf /var/cache/apk/*
+    curl build-base autoconf libzip-dev zlib-dev libpng-dev libjpeg-turbo-dev freetype-dev icu-dev postgresql-dev
 
-# Install Composer
-COPY --from=composer:2.3.3 /usr/bin/composer /usr/local/bin/composer
+# Composer
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 
-# Configure dan install PHP extensions
-RUN docker-php-ext-configure pgsql --with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-install -j$(nproc) pdo pdo_pgsql pgsql \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd zip opcache bcmath
-
-# Set working directory
 WORKDIR /var/www
 
-# Copy composer files dan install dependencies dulu (untuk caching layer)
+# copy composer only to leverage layer cache
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --optimize-autoloader --no-scripts --no-autoloader --prefer-dist
+RUN composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader --no-scripts
 
-# Copy seluruh aplikasi
+# copy app
 COPY . .
 
-# Generate autoloader dan optimize
-RUN composer dump-autoload --optimize --no-dev \
-    && php artisan config:clear \
-    && php artisan route:clear \
-    && php artisan view:clear
+# run optimizations that do not require runtime APP_KEY (avoid running artisan config:cache if APP_KEY not present)
+RUN composer dump-autoload --optimize
 
-# Stage 2: Production - Image final yang ringan
+### Final image
 FROM php:8.2-fpm-alpine
 
-# Install runtime dependencies (tanpa build tools)
-RUN apk add --no-cache \
-    libpq \
-    libpng \
-    libjpeg-turbo \
-    freetype \
-    libzip \
-    wget \
+RUN apk add --no-cache libzip libpng libjpeg-turbo freetype icu tzdata \
     && rm -rf /var/cache/apk/*
 
-# Copy PHP extensions dan config dari builder
-COPY --from=builder /usr/local/lib/php/extensions /usr/local/lib/php/extensions
-COPY --from=builder /usr/local/etc/php/conf.d /usr/local/etc/php/conf.d
-
-# Copy aplikasi dari builder
+# copy extensions (if any) and app from builder
+COPY --from=builder /var/www /var/www
 WORKDIR /var/www
-COPY --from=builder --chown=www-data:www-data /var/www /var/www
 
-# Fix permissions untuk storage dan cache
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
+# ensure proper permissions (will be re-checked at runtime in entrypoint)
+RUN addgroup -g 1000 app && adduser -D -u 1000 -G app app \
+    && chown -R app:app /var/www/storage /var/www/bootstrap/cache \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
-# Gunakan user non-root untuk security
-USER www-data
+# switch to non-root user
+USER app
 
-# Expose port
+# expose php-fpm socket port
 EXPOSE 9000
 
-# Jalankan PHP-FPM, bukan built-in server
+# default command runs php-fpm (already in base image)
 CMD ["php-fpm"]
