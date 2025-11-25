@@ -10,7 +10,8 @@ services:
             SERVICE_TAGS: dev
         working_dir: /var/www
         volumes:
-            - ./:/var/www
+            - ./storage:/var/www/storage
+            - ./.env:/var/www/.env
         networks:
             - database-network
             - web-network
