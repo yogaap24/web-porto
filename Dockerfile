@@ -31,9 +31,9 @@ RUN apk add --no-cache libzip libpng libjpeg-turbo freetype icu tzdata \
 COPY --from=builder /var/www /var/www
 WORKDIR /var/www
 
-# ensure proper permissions (will be re-checked at runtime in entrypoint)
+# ensure proper permissions for storage and cache
 RUN addgroup -g 1000 app && adduser -D -u 1000 -G app app \
-    && chown -R app:app /var/www/storage /var/www/bootstrap/cache \
+    && chown -R app:app /var/www \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
 # switch to non-root user
