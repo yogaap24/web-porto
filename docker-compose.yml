@@ -12,6 +12,7 @@ services:
         volumes:
             - ./storage:/var/www/storage
             - ./.env:/var/www/.env
+            - ./:/var/www
         networks:
             - database-network
             - web-network
