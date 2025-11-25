@@ -66,6 +66,7 @@ jobs:
             cd /root/workspace/web-porto
 
             docker-compose rm -f -s ${{ secrets.IMAGE_NAME }} || true
+            docker-compose rm -f -s ${{ secrets.IMAGE_NAME }}-nginx || true
 
             docker-compose pull
             docker-compose up -d --force-recreate

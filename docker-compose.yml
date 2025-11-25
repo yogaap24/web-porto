@@ -3,7 +3,7 @@ version: '3.8'
 services:
   app:
     image: ${DOCKER_USERNAME}/${IMAGE_NAME}:latest
-    container_name: ${IMAGE_NAME}-app
+    container_name: ${IMAGE_NAME}
     restart: unless-stopped
     working_dir: /var/www
     volumes:
