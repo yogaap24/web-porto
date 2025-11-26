@@ -235,6 +235,16 @@
                         about="Shoes Store is a simple shoe shopping application based on Android, developed with Kotlin. The application uses Firebase as the database and offers various features to make shoe shopping easier for users."
                         :stacks='["Kotlin","MVVM","Local Storage", "Firebase Auth", "Firebase Firestore", "Firebase Storage"]'
                         website="" github="https://github.com/yogaap24/shoes-store" />
+
+					<x-project title="Shoes Store"
+                        :images="[
+                            asset('img/personal-projects/card-bisindo/mainPage.jpeg'),
+                            asset('img/personal-projects/card-bisindo/gamePage.jpeg'),
+                            asset('img/personal-projects/card-bisindo/resultPage.jpeg'),
+                        ]"
+                        about="Card Bisindo is simple card game where player gonna get a card and try make valid Indonesian word from the card. This game have some level for difficulty to make the game more challenging."
+                        :stacks='["ReactJS","ExpressJS", "Vite", "PostgreSQL","Docker", "KBBI API"]'
+                        website="https://card-bisindo.yoo.ga/" github="https://github.com/yogaap24/simple-card-game" />
                 </div>
             </div>
         </section>
