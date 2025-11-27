@@ -197,7 +197,7 @@
                         ]"
                         about="Tako POS is a Point of Sale system I developed as my own product, designed to empower small and medium businesses in managing sales transactions, inventory, and customer data. Featuring a comprehensive suite of tools, Tako POS includes product management, inventory tracking, sales reporting, and more, making it an essential solution for streamlining business operations."
                         :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","ChartJS", "Laravel","MySQL", "Docker", "API Currency Exchange"]'
-                        website="https://tako-pos.yoo.ga/" github="" />
+                        website="https://pos.takotekno.solutions/" github="" />
                 </div>
             </div>
         </section>
