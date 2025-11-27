@@ -40,7 +40,6 @@ services:
             - ./nginx/site.conf:/etc/nginx/conf.d/default.conf:ro
         volumes_from:
             - webporto_app:ro
-        voumes
         networks:
             - proxy
             - internal_net
