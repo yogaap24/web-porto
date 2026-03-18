@@ -216,7 +216,7 @@
                             asset('img/portofolio/sungai-baru/akun-kas.png'),
                         ]"
 						about="Sungai Baru ERP, a dedicated enterprise resource planning system developed for Sungai Baru Plastik, integrates and centralizes core business workflows into a unified platform. It facilitates the complete order to cash cycle by managing Sales Orders and tracking Deliveries, while simultaneously optimizing procurement through automated Purchase Order processing. The system features advanced real-time Inventory control and is anchored by a comprehensive financial engine that handles the Chart of Accounts, manages Cash Balances across multiple accounts, and generates critical financial statements to drive data driven decision making."
-                        :stacks='["PHP","HTML","CSS","JavaScript","jQuery","Yii","MySQL","Apache2"]'
+                        :stacks='["PHP","HTML","CSS","JavaScript","jQuery","Yii2","MySQL","Apache2"]'
                         website="" github="" />
 
 					<x-project title="Surya Citra POS"
