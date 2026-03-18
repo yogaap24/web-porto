@@ -221,17 +221,17 @@
 
 					<x-project title="Surya Citra POS"
                         :images="[
-                            asset('img/portofolio/surya-citra-pos/phone-login.png'),
-                            asset('img/portofolio/surya-citra-pos/phone-list-product.png'),
-                            asset('img/portofolio/surya-citra-pos/phone-detail-transaction.png'),
-                            asset('img/portofolio/surya-citra-pos/phone-receipt.png'),
+                            asset('img/portofolio/surya-citra-pos/phone-login.jpeg'),
+                            asset('img/portofolio/surya-citra-pos/phone-list-product.jpeg'),
+                            asset('img/portofolio/surya-citra-pos/phone-detail-transaction.jpeg'),
+                            asset('img/portofolio/surya-citra-pos/phone-receipt.jpeg'),
 							asset('img/portofolio/surya-citra-pos/tablet-shift.png'),
                             asset('img/portofolio/surya-citra-pos/tablet-list-product.png'),
                             asset('img/portofolio/surya-citra-pos/tablet-add-cart.png'),
                             asset('img/portofolio/surya-citra-pos/tablet-payment.png'),
                         ]"
 						about="Surya Citra POS, developed for Surya Citra Mandiri Utama, is a highly adaptable Point of Sale application engineered to streamline daily transactions for retail and production material sales. Fully optimized for both smartphone and tablet interfaces, the system accelerates the checkout process through integrated barcode scanning and direct receipt printing capabilities. The platform is equipped with robust operational features, including dynamic cart management, comprehensive shift and initial cash tracking, flexible multi-payment options (such as Cash, EDC, and E-Wallet), and detailed transaction history with voiding functionalities to ensure accurate and efficient store management."
-                        :stacks='["Flutter","Dart","API Integration","Secure Storage","Mobile Scanner","SQLite"]'
+                        :stacks='["Flutter","Dart","API Integration","Secure Storage","Mobile Scanner","Mobile Printing","SQLite"]'
                         website="" github="" />
                 </div>
             </div>
@@ -258,7 +258,7 @@
                             asset('img/personal-projects/shoes-store/profilePage.png')
                         ]"
                         about="Shoes Store is a simple shoe shopping application based on Android, developed with Kotlin. The application uses Firebase as the database and offers various features to make shoe shopping easier for users."
-                        :stacks='["Kotlin","MVVM","Local Storage", "Firebase Auth", "Firebase Firestore", "Firebase Storage"]'
+                        :stacks='["Kotlin","MVVM","Local Storage","Firebase Auth","Firebase Firestore","Firebase Storage"]'
                         website="" github="https://github.com/yogaap24/shoes-store" />
 
 					<x-project title="Card Bisindo"
@@ -268,8 +268,20 @@
                             asset('img/personal-projects/card-bisindo/resultPage.jpeg'),
                         ]"
                         about="Card Bisindo is simple card game where player gonna get a card and try make valid Indonesian word from the card. This game have some level for difficulty to make the game more challenging."
-                        :stacks='["ReactJS","ExpressJS", "Vite", "PostgreSQL","Docker", "KBBI API"]'
+                        :stacks='["ReactJS","ExpressJS","Vite","PostgreSQL","Docker","KBBI API"]'
                         website="https://card-bisindo.yoo.ga/" github="https://github.com/yogaap24/simple-card-game" />
+
+					<x-project title="Binatu"
+                        :images="[
+                            asset('img/personal-projects/binatu/dashboard.png'),
+                            asset('img/personal-projects/binatu/history.png'),
+                            asset('img/personal-projects/binatu/settings.png'),
+                            asset('img/personal-projects/binatu/package.png'),
+                            asset('img/personal-projects/binatu/report.png'),
+                        ]"
+						about="Binatu, an independently developed and entirely free mobile application for laundry business owners, is a comprehensive management tool soon to be available on the Play Store and App Store. Designed to streamline daily operations, the app provides a robust suite of features including active order queuing, customizable service packages, staff management, detailed transaction history, and intuitive daily financial reports. Furthermore, Binatu enhances operational efficiency and customer communication by offering seamless receipt printing support and automated WhatsApp receipt sharing capabilities."
+                        :stacks='["Flutter","Dart","API Integration","Secure Storage","Mobile Scanner","Mobile Printing","SQLite","Supabase"]'
+                        website="" github="" />
                 </div>
             </div>
         </section>
