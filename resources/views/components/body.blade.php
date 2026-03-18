@@ -186,18 +186,53 @@
                         :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","Laravel","MySQL","Jenkins", "Docker"]'
                         website="https://sista.sekolahauliya.sch.id/" github="" />
 
-                    <x-project title="Tako POS"
+					<x-project title="Cahaya Maju Paper"
                         :images="[
-                            asset('img/portofolio/takopos/login.png'),
-                            asset('img/portofolio/takopos/dashboard.png'),
-                            asset('img/portofolio/takopos/packages.png'),
-                            asset('img/portofolio/takopos/store.png'),
-                            asset('img/portofolio/takopos/food-list.png'),
-                            asset('img/portofolio/takopos/order-history.png'),
+                            asset('img/portofolio/cahaya-maju/beranda.png'),
+                            asset('img/portofolio/cahaya-maju/produk-pantone.png'),
+                            asset('img/portofolio/cahaya-maju/layanan-kami.png'),
+                            asset('img/portofolio/cahaya-maju/tentang-kami.png'),
                         ]"
-                        about="Tako POS is a Point of Sale system I developed as my own product, designed to empower small and medium businesses in managing sales transactions, inventory, and customer data. Featuring a comprehensive suite of tools, Tako POS includes product management, inventory tracking, sales reporting, and more, making it an essential solution for streamlining business operations."
-                        :stacks='["PHP","HTML","CSS","JavaScript","Bootstrap","jQuery","ChartJS", "Laravel","MySQL", "Docker", "API Currency Exchange"]'
-                        website="https://pos.takotekno.solutions/" github="" />
+						about="Cahaya Maju Paper is a corporate website for a paper distribution company, featuring products such as Pantone color guides. It is designed to provide comprehensive information about the company's product offerings, available services, and corporate profile. Featuring an engaging and informative interface, the website aims to help customers easily discover the products they need and learn more about the business."
+                        :stacks='["HTML","CSS","JavaScript","Uno CSS","jQuery","VueJS","Nuxt","API Integration","WA Business Chat","Apache2"]'
+                        website="https://cahayamajupaper.com/" github="" />
+
+					<x-project title="Cahaya Maju ERP"
+                        :images="[
+                            asset('img/portofolio/cm-erp/dashboard.png'),
+                            asset('img/portofolio/cm-erp/produk.png'),
+                            asset('img/portofolio/cm-erp/spk.png'),
+                            asset('img/portofolio/cm-erp/cash-flow.png'),
+                        ]"
+						about="Cahaya Maju ERP is an integrated Enterprise Resource Planning platform developed specifically to automate the entire business operational chain of Cahaya Maju Paper. The system manages detailed inventory product data, controls paper cutting production processes, integrates the cycle of stock purchasing and delivery logistics, and unifies financial reporting through a centralized accounting module. Additionally, the ERP serves as a control panel (CMS) to manage the content of the company's website portal."
+                        :stacks='["PHP","HTML","CSS","JavaScript","jQuery","Yii","MySQL","DataTables","Apache2"]'
+                        website="" github="" />
+
+					<x-project title="Sungai Baru ERP"
+                        :images="[
+                            asset('img/portofolio/sungai-baru/dashboard.png'),
+                            asset('img/portofolio/sungai-baru/sales-order.png'),
+                            asset('img/portofolio/sungai-baru/purchase-order.png'),
+                            asset('img/portofolio/sungai-baru/akun-kas.png'),
+                        ]"
+						about="Sungai Baru ERP, a dedicated enterprise resource planning system developed for Sungai Baru Plastik, integrates and centralizes core business workflows into a unified platform. It facilitates the complete order to cash cycle by managing Sales Orders and tracking Deliveries, while simultaneously optimizing procurement through automated Purchase Order processing. The system features advanced real-time Inventory control and is anchored by a comprehensive financial engine that handles the Chart of Accounts, manages Cash Balances across multiple accounts, and generates critical financial statements to drive data driven decision making."
+                        :stacks='["PHP","HTML","CSS","JavaScript","jQuery","Yii","MySQL","Apache2"]'
+                        website="" github="" />
+
+					<x-project title="Surya Citra POS"
+                        :images="[
+                            asset('img/portofolio/surya-citra-pos/phone-login.png'),
+                            asset('img/portofolio/surya-citra-pos/phone-list-product.png'),
+                            asset('img/portofolio/surya-citra-pos/phone-detail-transaction.png'),
+                            asset('img/portofolio/surya-citra-pos/phone-receipt.png'),
+							asset('img/portofolio/surya-citra-pos/tablet-shift.png'),
+                            asset('img/portofolio/surya-citra-pos/tablet-list-product.png'),
+                            asset('img/portofolio/surya-citra-pos/tablet-add-cart.png'),
+                            asset('img/portofolio/surya-citra-pos/tablet-payment.png'),
+                        ]"
+						about="Surya Citra POS, developed for Surya Citra Mandiri Utama, is a highly adaptable Point of Sale application engineered to streamline daily transactions for retail and production material sales. Fully optimized for both smartphone and tablet interfaces, the system accelerates the checkout process through integrated barcode scanning and direct receipt printing capabilities. The platform is equipped with robust operational features, including dynamic cart management, comprehensive shift and initial cash tracking, flexible multi-payment options (such as Cash, EDC, and E-Wallet), and detailed transaction history with voiding functionalities to ensure accurate and efficient store management."
+                        :stacks='["Flutter","Dart","API Integration","Secure Storage","Mobile Scanner","SQLite"]'
+                        website="" github="" />
                 </div>
             </div>
         </section>
@@ -215,16 +250,6 @@
                 </div>
 
                 <div class="row">
-                    <x-project title="Fruit App"
-                        :images="[
-                            asset('img/personal-projects/fruitApp/mainPage.png'),
-                            asset('img/personal-projects/fruitApp/detailPage.png'),
-                            asset('img/personal-projects/fruitApp/favPage.png')
-                        ]"
-                        about="Fruit App is apps to see list of fruits and detail of fruits. This app use local storage to save favorite fruits. User can see list of fruits, search fruit by name, see detail of fruit, and add fruit to favorite."
-                        :stacks='["Kotlin","Jetpack Compose", "MVVM", "Local Storage"]'
-                        website="" github="https://github.com/yogaap24/fruitApp" />
-
                     <x-project title="Shoes Store"
                         :images="[
                             asset('img/personal-projects/shoes-store/mainPage.png'),
@@ -236,7 +261,7 @@
                         :stacks='["Kotlin","MVVM","Local Storage", "Firebase Auth", "Firebase Firestore", "Firebase Storage"]'
                         website="" github="https://github.com/yogaap24/shoes-store" />
 
-					<x-project title="Shoes Store"
+					<x-project title="Card Bisindo"
                         :images="[
                             asset('img/personal-projects/card-bisindo/mainPage.jpeg'),
                             asset('img/personal-projects/card-bisindo/gamePage.jpeg'),
