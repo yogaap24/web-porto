@@ -273,8 +273,8 @@
 
 					<x-project title="Binatu"
                         :images="[
-                            asset('img/personal-projects/binatu/dashboard.png'),
                             asset('img/personal-projects/binatu/history.png'),
+                            asset('img/personal-projects/binatu/dashboard.png'),
                             asset('img/personal-projects/binatu/settings.png'),
                             asset('img/personal-projects/binatu/package.png'),
                             asset('img/personal-projects/binatu/report.png'),
