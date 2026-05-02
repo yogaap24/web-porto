@@ -149,7 +149,7 @@
 
     <footer class="footer">
         <div class="container footer__inner">
-            <p class="footer__copy">&copy; {{ year }} <strong>Yoga Agung Prasetio</strong> — Made with ❤️</p>
+            <p class="footer__copy">&copy; {{ year }} <strong>Yoga Agung Prasetio</strong></p>
             <div class="footer__links">
                 <a :href="socialLinks.github" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a>
                 <a :href="socialLinks.linkedin" target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn</a>
