@@ -83,7 +83,7 @@ export const workProjects = [
         images: ["/img/portofolio/kbs-tas.png"],
         about: "KBS TAS is website for KBS company, they use this website for manage their transportation queues, ritase, activities, exit and entry of a truck at the shipping dock. This website has feature for manage driver, vehicle, and schedule for when ship ready on shipping dock.",
         stacks: ["PHP", "JavaScript", "Laravel", "Livewire", "PgSQL", "Docker"],
-        website: "https://play.google.com/store/apps/details?id=id.transtrack.TasKbsAndroid",
+        website: "",
         github: "",
     },
     {
