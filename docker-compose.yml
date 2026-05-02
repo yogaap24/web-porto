@@ -2,14 +2,9 @@ version: "3.8"
 
 services:
     webporto_nginx:
-        build:
-            context: .
-            dockerfile: Dockerfile
         image: ${DOCKER_USERNAME:-local}/${IMAGE_NAME:-webporto}:latest
         container_name: ${IMAGE_NAME:-webporto}-nginx
         restart: unless-stopped
-        ports:
-            - "8080:80"
         networks:
             - proxy
             - internal_net

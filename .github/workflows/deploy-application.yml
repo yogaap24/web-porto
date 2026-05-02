@@ -75,23 +75,10 @@ jobs:
 
             sleep 5
 
-            if docker ps --format '{{.Names}}' | grep -q "${{ secrets.IMAGE_NAME }}"; then
-                echo "Running final Laravel setup..."
-
-                # Only generate key if it doesn't exist in .env
-                if ! grep -q "APP_KEY=base64:" .env 2>/dev/null; then
-                    echo "Generating APP_KEY..."
-                    docker exec ${{ secrets.IMAGE_NAME }} php artisan key:generate
-                else
-                    echo "APP_KEY already exists, skipping generation."
-                fi
-
-                docker exec ${{ secrets.IMAGE_NAME }} php artisan config:clear
-                docker exec ${{ secrets.IMAGE_NAME }} php artisan cache:clear
-
-                echo "✅ Deployment dan Setup Laravel Selesai."
+            if docker ps --format '{{.Names}}' | grep -q "${{ secrets.IMAGE_NAME }}-nginx"; then
+                echo "✅ Deployment Vue SPA Selesai."
             else
-                echo "❌ GAGAL: Container tidak stabil. Cek logs dengan: docker logs ${{ secrets.IMAGE_NAME }}"
+                echo "❌ GAGAL: Container tidak stabil. Cek logs dengan: docker logs ${{ secrets.IMAGE_NAME }}-nginx"
             fi
 
             # 4. Bersihkan image lama
