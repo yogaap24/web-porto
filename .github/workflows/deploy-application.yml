@@ -65,10 +65,9 @@ jobs:
 
             cd /home/ubuntu/workspace/web-porto
 
-            docker-compose down -v
-
-            docker-compose pull
-            docker-compose up -d --force-recreate
+            docker compose down -v
+            docker compose pull
+            docker compose up -d --force-recreate
 
             sudo chown 1000:1000 .env
             sudo chmod 664 .env
@@ -76,10 +75,10 @@ jobs:
             sleep 5
 
             if docker ps --format '{{.Names}}' | grep -q "${{ secrets.IMAGE_NAME }}-nginx"; then
-                echo "✅ Deployment Vue SPA Selesai."
+                echo "✅ Deployment Web-Porto Selesai."
             else
                 echo "❌ GAGAL: Container tidak stabil. Cek logs dengan: docker logs ${{ secrets.IMAGE_NAME }}-nginx"
             fi
 
-            # 4. Bersihkan image lama
+            # Bersihkan image lama
             docker image prune -f
