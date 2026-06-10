@@ -287,6 +287,19 @@ export const workProjects = [
         website: "",
         github: "",
     },
+    {
+        id: 18,
+        title: "Boboin",
+        images: [
+            "/img/portofolio/boboin/home.webp",
+            "/img/portofolio/boboin/login.webp",
+            "/img/portofolio/boboin/rooms.webp",
+        ],
+        about: "Boboin is a property search platform designed to help users find the best housing options, including boarding houses (kost), apartments, and villas. Equipped with smart search features and local recommendations, it simplifies the process of finding the perfect place to live.",
+        stacks: ["React", "Vite", "React Router", "Tailwind CSS", "Leaflet"],
+        website: "",
+        github: "",
+    },
 ];
 
 export const personalProjects = [
