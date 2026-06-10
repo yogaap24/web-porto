@@ -7,7 +7,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   color: #777777;
-  background: url(../img/body-bg.png) no-repeat center; }
+  background: url(../img/body-bg.webp) no-repeat center; }
 
 h1,
 h2,
@@ -355,7 +355,7 @@ button:focus {
           background: #000000; }
           @media (max-width: 575px) {
             .home_banner_area .banner_inner {
-              padding: 0px 0px 0px 0px !important; 
+              padding: 0px 0px 0px 0px !important;
             }
             .home_banner_area .banner_inner .banner_content h3:after {
               display: none; } }
@@ -369,7 +369,7 @@ button:focus {
             font-size: 60px; } }
         @media (max-width: 767px) {
           .home_banner_area .banner_inner .banner_content h1 {
-            font-size: 50px; } 
+            font-size: 50px; }
             .about_area .primary_btn {
               width: 100%; }
               .home_banner_area .banner_inner .banner_content .primary_btn {
@@ -2439,7 +2439,7 @@ h6 {
 
     @media (max-width: 991px) {
       .profile_img {
-        display: none; } 
+        display: none; }
       .home_banner_area,.banner_inner{
         min-height: auto !important;
       }
@@ -3088,7 +3088,7 @@ h6 {
   .home_banner_area .banner_inner .banner_content {
     margin-top: 0px; }
     .home_banner_area .banner_inner .banner_content .primary_btn {
-      display: block; 
+      display: block;
       width: 100%;
     }
 
@@ -3310,7 +3310,7 @@ h6 {
 /*# sourceMappingURL=style.css.map */
 
 .home_banner_area .banner_inner {
-  padding: 120px 0px 0px 0px; 
+  padding: 120px 0px 0px 0px;
 }
 
 canvas{
@@ -3358,6 +3358,6 @@ label{
   color:white;
 }
 
-section {    
+section {
   padding-top: 69px;
 }
