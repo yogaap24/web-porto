@@ -282,7 +282,12 @@ export const workProjects = [
             "TypeScript",
             "Supabase",
             "Framer Motion",
-            "Stripe",
+			"Stripe",
+			"Python",
+			"FastAPI",
+			"AI Integration",
+			"LangChain",
+			"LLM"
         ],
         website: "",
         github: "",
