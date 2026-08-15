@@ -34,6 +34,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Connect Tailscale
+        uses: tailscale/github-action@v4
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+          ping: ${{ secrets.HOST }}
+
       - name: Create Deploy Directory on VPS
         uses: appleboy/ssh-action@master
         with:
